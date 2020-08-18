@@ -9,16 +9,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var githubSummary: GitHubSummary = GitHubSummary(page: GitHubSummary.Page(), components: [GitHubSummary.Component()])
+    @State private var githubSummary = GitHubSummary()
     
     var body: some View {
         VStack {
             Text("\(githubSummary.page.name)")
             Text("\(githubSummary.page.url)")
             
-//            List(githubSummary.components) { component in
-//                Text(component.name)
-//            }
             List {
                 ForEach(githubSummary.components.filter {$0.name != "Visit www.githubstatus.com for more information"}) { component in
                     Text(component.name)
@@ -57,9 +54,9 @@ struct ContentView: View {
         
     }
 }
-//
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView()
-//    }
-//}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}

@@ -9,8 +9,8 @@
 import Foundation
 
 struct GitHubSummary: Codable {
-    var page: Page
-    var components: [Component]
+    var page = Page()
+    var components: [Component] = []
     
     struct Page: Codable {
         var name: String = ""
