@@ -13,6 +13,7 @@
 		0A54A87324EC7CB2004BB8A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A54A87224EC7CB2004BB8A8 /* Assets.xcassets */; };
 		0A54A87624EC7CB2004BB8A8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A54A87524EC7CB2004BB8A8 /* Preview Assets.xcassets */; };
 		0A54A87924EC7CB2004BB8A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A54A87724EC7CB2004BB8A8 /* LaunchScreen.storyboard */; };
+		0A54A88524EC7DB3004BB8A8 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A54A88424EC7DB3004BB8A8 /* API.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		0A54A87524EC7CB2004BB8A8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0A54A87824EC7CB2004BB8A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A54A87A24EC7CB2004BB8A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A54A88424EC7DB3004BB8A8 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,12 +58,12 @@
 		0A54A86B24EC7CB1004BB8A8 /* 11 - GitHub Status */ = {
 			isa = PBXGroup;
 			children = (
-				0A54A86C24EC7CB1004BB8A8 /* AppDelegate.swift */,
-				0A54A86E24EC7CB1004BB8A8 /* SceneDelegate.swift */,
-				0A54A87024EC7CB1004BB8A8 /* ContentView.swift */,
 				0A54A87224EC7CB2004BB8A8 /* Assets.xcassets */,
-				0A54A87724EC7CB2004BB8A8 /* LaunchScreen.storyboard */,
 				0A54A87A24EC7CB2004BB8A8 /* Info.plist */,
+				0A54A88324EC7CDF004BB8A8 /* Constant */,
+				0A54A88024EC7CCA004BB8A8 /* Delegate */,
+				0A54A88224EC7CDA004BB8A8 /* Model */,
+				0A54A88124EC7CD1004BB8A8 /* View */,
 				0A54A87424EC7CB2004BB8A8 /* Preview Content */,
 			);
 			path = "11 - GitHub Status";
@@ -73,6 +75,39 @@
 				0A54A87524EC7CB2004BB8A8 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		0A54A88024EC7CCA004BB8A8 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				0A54A86C24EC7CB1004BB8A8 /* AppDelegate.swift */,
+				0A54A86E24EC7CB1004BB8A8 /* SceneDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		0A54A88124EC7CD1004BB8A8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0A54A87024EC7CB1004BB8A8 /* ContentView.swift */,
+				0A54A87724EC7CB2004BB8A8 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0A54A88224EC7CDA004BB8A8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0A54A88324EC7CDF004BB8A8 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				0A54A88424EC7DB3004BB8A8 /* API.swift */,
+			);
+			path = Constant;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +183,7 @@
 			files = (
 				0A54A86D24EC7CB1004BB8A8 /* AppDelegate.swift in Sources */,
 				0A54A86F24EC7CB1004BB8A8 /* SceneDelegate.swift in Sources */,
+				0A54A88524EC7DB3004BB8A8 /* API.swift in Sources */,
 				0A54A87124EC7CB1004BB8A8 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
