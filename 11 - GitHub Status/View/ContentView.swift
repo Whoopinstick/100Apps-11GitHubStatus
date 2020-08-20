@@ -12,34 +12,41 @@ struct ContentView: View {
     @State private var githubSummary = GitHubSummary()
     
     var body: some View {
-        
-        VStack {
-            
-            Text("\(githubSummary.page.url)")
-                .font(.subheadline)
-            
-            Text("Last Updated: \(githubSummary.page.formattedDateUpdated)")
-            
-            //Spacer()
-            
+        NavigationView {
             VStack(alignment: .leading) {
-            ForEach(githubSummary.components.filter {$0.name != "Visit www.githubstatus.com for more information"}) { component in
-                //VStack(alignment: .leading) {
+                
+                Text("Last Updated: \(githubSummary.page.formattedDateUpdated)")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+                
+                Spacer()
+                Spacer()
+                
+                ForEach(githubSummary.components.filter {$0.name != "Visit www.githubstatus.com for more information"}) { component in
                     
                     Text(component.name)
                         .font(.headline)
                     Text(component.status.capitalized)
                         .font(.subheadline)
-                //}
-            }.edgesIgnoringSafeArea([.leading,.trailing])
-        }
+                        .foregroundColor(self.changeStatusFont(for: component.status.capitalized))
+                    Spacer(minLength: 5.0)
+                    
+                }
+
+                Spacer()
+                Spacer()
+                
+            }
+            .onAppear(perform: loadData)
             .navigationBarTitle("GitHub Status")
+            .navigationBarItems(trailing: Button(action: {
+                self.loadData()
+            }) {
+                Image(systemName: "arrow.clockwise")
+            })
+            
+        }
     }
-    
-        .onAppear(perform: loadData)
-        
-    }
-    
     //methods
     func loadData() {
         guard let url = URL(string: API.url) else {
@@ -65,7 +72,23 @@ struct ContentView: View {
                 print("Fetch failed: \(error?.localizedDescription ?? "unknown error")")
             }
         }.resume()
-        
+    }
+    
+    func changeStatusFont(for status: String) -> Color {
+        let lowercaseStatus = status.lowercased()
+        //operational, degraded_performance, partial_outage, or major_outage
+        switch lowercaseStatus {
+        case "operational":
+            return Color.green
+        case "degraded_performance":
+            return Color.yellow
+        case "partial_outage":
+            return Color.yellow
+            case "major_outage":
+            return Color.red
+        default:
+            return Color.primary
+        }
     }
 }
 
