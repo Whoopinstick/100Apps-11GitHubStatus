@@ -12,18 +12,32 @@ struct ContentView: View {
     @State private var githubSummary = GitHubSummary()
     
     var body: some View {
-        VStack {
-            Text("\(githubSummary.page.name)")
-            Text("\(githubSummary.page.url)")
-            
-            List {
-                ForEach(githubSummary.components.filter {$0.name != "Visit www.githubstatus.com for more information"}) { component in
-                    Text(component.name)
-                }
-            }
         
+        VStack {
+            
+            Text("\(githubSummary.page.url)")
+                .font(.subheadline)
+            
+            Text("Last Updated: \(githubSummary.page.formattedDateUpdated)")
+            
+            //Spacer()
+            
+            VStack(alignment: .leading) {
+            ForEach(githubSummary.components.filter {$0.name != "Visit www.githubstatus.com for more information"}) { component in
+                //VStack(alignment: .leading) {
+                    
+                    Text(component.name)
+                        .font(.headline)
+                    Text(component.status.capitalized)
+                        .font(.subheadline)
+                //}
+            }.edgesIgnoringSafeArea([.leading,.trailing])
         }
+            .navigationBarTitle("GitHub Status")
+    }
+    
         .onAppear(perform: loadData)
+        
     }
     
     //methods
